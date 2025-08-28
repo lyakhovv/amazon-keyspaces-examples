@@ -304,10 +304,6 @@ INSERT INTO properties (
     92
 );
 
-UPDATE customers
-SET home_address = {"street": "123 Main St", "city": "Seattle", "state": "WA", "zip": "98109"}
-WHERE customer_id = 'cust_123';
-
 
 Select * from properties where property_id = 33333333-3333-3333-3333-333333333333;
 
@@ -329,10 +325,6 @@ update properties
     }
 where property_id = 33333333-3333-3333-3333-333333333333
 
-UPDATE customers
-SET home_address = {"street": "123 Main St", "city": "Seattle", "state": "WA", "zip": "98109"}
-WHERE customer_id = 'cust_123'
-IF home_address.zip = '98101';
 
 update properties
     set address = {
@@ -366,15 +358,3 @@ where property_id = 33333333-3333-3333-3333-333333333333
 if address.street_number = '500';
 
 
-
-CREATE TABLE IF NOT EXISTS properties (
-    property_id UUID PRIMARY KEY,
-    mls_number TEXT,
-    address frozen<address_details>,
-    listing frozen<listing_details>,
-    location frozen<location_quality>,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP,
-    data_source TEXT,
-    data_quality_score INT
-);
